@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe Box Gifts | Premium Custom Gift Boxes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --primary-black: #0A0A0A;
+      --secondary-black: #1A1A1A;
+      --tertiary-black: #0F0F0F;
+      --gold: #D4AF37;
+      --gold-hover: #b8962e;
+      --soft-white: #F5F5F0;
+      --text-gray: rgba(245, 245, 240, 0.6);
+      --border-gold: rgba(212, 175, 55, 0.2);
+      --border-light: rgba(245, 245, 240, 0.2);
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--primary-black);
+      color: var(--soft-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      color: var(--soft-white);
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+    .section-title {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      color: var(--soft-white);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background-color: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-gold {
+      background-color: var(--gold);
+      color: var(--primary-black);
+    }
+
+    .btn-gold:hover {
+      background-color: transparent;
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--border-light);
+      color: var(--soft-white);
+    }
+
+    .btn-outline:hover {
+      background-color: transparent;
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: background-color 0.4s ease, padding 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background-color: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: color 0.4s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+      color: var(--soft-white);
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    nav:not(.scrolled) .logo {
+        color: var(--gold);
+    }
+    nav:not(.scrolled) .nav-links a {
+        color: var(--soft-white);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(to right, var(--primary-black), var(--secondary-black));
+      color: var(--soft-white);
+      padding-top: 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at center, rgba(20,20,20,0.5) 0%, var(--primary-black) 80%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--soft-white);
+      line-height: 1.1;
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      color: rgba(212, 175, 55, 0.8);
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+    }
+
+    .hero .btns {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    section {
+      padding: 7rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .feature-item {
+      padding: 2.5rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--border-gold);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-icon svg {
+        width: 48px;
+        height: 48px;
+        stroke: var(--gold);
+        stroke-width: 1.5;
+        fill: none;
+    }
+
+    .feature-item h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      font-family: var(--font-sans);
+      font-weight: 700;
+    }
+
+    .feature-item p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    .occasions {
+      background-color: var(--primary-black);
+      border-top: 1px solid var(--border-gold);
+    }
+
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .occasion-card {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      background-color: var(--secondary-black);
+      display: flex;
+      align-items: flex-end;
+      padding: 2.5rem;
+      cursor: pointer;
+      border: 1px solid var(--border-gold);
+    }
+
+    .occasion-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, var(--primary-black) 0%, rgba(10,10,10,0.2) 60%, rgba(10,10,10,0.1) 100%);
+      z-index: 1;
+      transition: background 0.4s ease;
+    }
+
+    .bg-1 { background: radial-gradient(circle at top right, #2a2a2a, var(--secondary-black)); }
+    .bg-2 { background: radial-gradient(circle at bottom left, #2f2726, var(--secondary-black)); }
+    .bg-3 { background: radial-gradient(circle at top left, #231f17, var(--secondary-black)); }
+    .bg-4 { background: radial-gradient(circle at bottom right, #222, var(--secondary-black)); }
+    .bg-5 { background: radial-gradient(circle at center, #1e1d1f, var(--secondary-black)); }
+
+    .occasion-card:hover::before {
+        background: linear-gradient(to top, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.6) 100%);
+    }
+
+    .occasion-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .occasion-content h3 {
+      color: var(--soft-white);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .occasion-content p {
+      font-size: 1rem;
+      color: #e0e0e0;
+      opacity: 0.8;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .occasion-card:hover .occasion-content p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      position: relative;
+      margin-top: 4rem;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 45px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background-color: var(--gold);
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    @media(max-width: 900px) {
+      .steps::before { display: none; }
+      .steps { flex-direction: column; align-items: center; gap: 4rem; }
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      background: var(--primary-black);
+      padding: 0 1.5rem;
+    }
+
+    .step-number {
+      width: 90px;
+      height: 90px;
+      background-color: transparent;
+      color: var(--gold);
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 1px solid var(--border-gold);
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .step:hover .step-number {
+        transform: scale(1.05);
+    }
+
+    .step h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .step p {
+      color: var(--text-gray);
+      font-size: 1rem;
+    }
+
+    .testimonials {
+      background-color: var(--secondary-black);
+      color: var(--soft-white);
+      border-top: 1px solid var(--border-gold);
+    }
+
+    .testimonials .section-title {
+      color: var(--soft-white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .testimonial-card {
+      background-color: var(--primary-black);
+      padding: 3rem 2.5rem;
+      position: relative;
+      border: 1px solid var(--border-light);
+    }
+    
+    .testimonial-card::before {
+        content: '"';
+        font-family: var(--font-serif);
+        font-size: 8rem;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        color: rgba(212, 175, 55, 0.1);
+        line-height: 1;
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 4px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: rgba(245, 245, 240, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-sans);
+    }
+
+    .contact {
+      background-color: var(--tertiary-black);
+    }
+
+    .contact-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--primary-black);
+      padding: 4rem;
+      border: 1px solid var(--border-gold);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1.2rem;
+      border: none;
+      border-bottom: 1px solid var(--border-light);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      background: transparent;
+      color: var(--soft-white);
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    textarea.form-control {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    footer {
+      background-color: var(--primary-black);
+      color: rgba(245, 245, 240, 0.5);
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid var(--border-gold);
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--soft-white);
+      margin-bottom: 1rem;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .footer-tagline {
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      color: #a0a0a0;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .footer-links a {
+        color: #888;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .footer-links a:hover {
+        color: var(--gold);
+    }
+
+    .copyright {
+        font-size: 0.85rem;
+        border-top: 1px solid #222;
+        padding-top: 2rem;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .nav-links { display: none; }
+      .contact-wrapper { padding: 2.5rem 1.5rem; }
+      .hero .btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Luxe Box</a>
+      <div class="nav-links">
+        <a href="#why-us">Why Us</a>
+        <a href="#occasions">Occasions</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Order Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1>The Art of Elevating Every Occasion</h1>
+      <p>Premium custom gift boxes defined by stunning presentation, high-quality products, and an absolutely stress-free gifting experience.</p>
+      <div class="btns">
+        <a href="#contact" class="btn btn-gold">Build Your Box</a>
+        <a href="#occasions" class="btn btn-outline">Explore Occasions</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us" class="container">
+    <h2 class="section-title fade-in">Why Luxe Box Gifts</h2>
+    <div class="features-grid">
+      <div class="feature-item fade-in">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Premium Quality</h3>
+        <p>Curated high-tier products enfolded in luxurious, meticulous packaging to create an unforgettable first impression.</p>
+      </div>
+      <div class="feature-item fade-in" style="transition-delay: 0.1s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Custom Curation</h3>
+        <p>Fully customizable options for any occasion. Or choose from our expertly premeditated themed boxes.</p>
+      </div>
+      <div class="feature-item fade-in" style="transition-delay: 0.2s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        </div>
+        <h3>Personal Touch</h3>
+        <p>A beautifully handwritten personal message of your choice is included in every single box we ship.</p>
+      </div>
+      <div class="feature-item fade-in" style="transition-delay: 0.3s">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Stress-Free Gifting</h3>
+        <p>No overthinking required. We guarantee an easy ordering process and strictly time-sensitive delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="occasions" class="occasions">
+    <div class="container">
+      <h2 class="section-title fade-in">Curated for Every Moment</h2>
+      <div class="occasions-grid">
+        <div class="occasion-card bg-1 fade-in">
+          <div class="occasion-content">
+            <h3>Mother's Day</h3>
+            <p>Show your appreciation with curated luxury she truly deserves.</p>
+          </div>
+        </div>
+        <div class="occasion-card bg-2 fade-in" style="transition-delay: 0.1s">
+          <div class="occasion-content">
+            <h3>Valentine's Day</h3>
+            <p>Romantic, memorable, and beautifully presented to capture the heart.</p>
+          </div>
+        </div>
+        <div class="occasion-card bg-3 fade-in" style="transition-delay: 0.2s">
+          <div class="occasion-content">
+            <h3>Birthdays</h3>
+            <p>Celebrate their special day with a personalized and memorable touch.</p>
+          </div>
+        </div>
+        <div class="occasion-card bg-4 fade-in" style="transition-delay: 0.3s">
+          <div class="occasion-content">
+            <h3>Baby &amp; Welcome</h3>
+            <p>Welcome the little one with premium comforts and essentials.</p>
+          </div>
+        </div>
+        <div class="occasion-card bg-5 fade-in" style="transition-delay: 0.4s">
+          <div class="occasion-content">
+            <h3>Corporate</h3>
+            <p>Impress clients and honor colleagues with elevated professional gifting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="container">
+    <h2 class="section-title fade-in">Seamless Sophistication</h2>
+    <div class="steps">
+      <div class="step fade-in">
+        <div class="step-number">1</div>
+        <h3>Choose Your Occasion</h3>
+        <p>Select a pre-designed premium theme or start from scratch for a fully custom curation.</p>
+      </div>
+      <div class="step fade-in" style="transition-delay: 0.2s">
+        <div class="step-number">2</div>
+        <h3>Personalize It</h3>
+        <p>Add your handwritten note and customize the product selection to match their exact taste.</p>
+      </div>
+      <div class="step fade-in" style="transition-delay: 0.4s">
+        <div class="step-number">3</div>
+        <h3>We Handle the Rest</h3>
+        <p>From the exquisite exterior wrapping to time-sensitive delivery, we ensure a flawless unboxing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title fade-in">The Luxe Experience</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Everything about Luxe Box Gifts is excellent! From the high quality products to the amazing customer service. I purchased a custom Mother's Day gift box and couldn't be happier."</p>
+          <p class="testimonial-author">&mdash; Kasandra T.</p>
+        </div>
+        <div class="testimonial-card fade-in" style="transition-delay: 0.1s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The box was beautifully wrapped and there was so much detail to the packaging. I loved how the company asked me to write a personal message to my mom."</p>
+          <p class="testimonial-author">&mdash; Buffy M.</p>
+        </div>
+        <div class="testimonial-card fade-in" style="transition-delay: 0.2s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Custom luxury gifts for a great price! Easy, time-sensitive, and came with everything — without having to overthink and stress about shopping."</p>
+          <p class="testimonial-author">&mdash; Carina R.</p>
+        </div>
+        <div class="testimonial-card fade-in" style="transition-delay: 0.3s">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The exterior wrapping, card and presentation were truly LUXE! Recipients are just as wowed as the buyers. The unboxing experience is part of the gift."</p>
+          <p class="testimonial-author">&mdash; Cristina D.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title fade-in">Begin Your Box</h2>
+      <div class="contact-wrapper fade-in">
+        <form id="orderForm" onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will contact you shortly to finalize your Luxe Box.');">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Occasion (e.g. Birthday, Valentine's)">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Tell us about the recipient or your vision for the box..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width: 100%;">Request Proposal</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <a href="#" class="footer-logo">Luxe Box Gifts</a>
+      <p class="footer-tagline">Elevating the art of giving, one box at a time.</p>
+      <div class="footer-links">
+          <a href="#why-us">Why Us</a>
+          <a href="#occasions">Occasions</a>
+          <a href="#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2026 Luxe Box Gifts. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Fade-in animation observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Trigger initial animations
+    setTimeout(() => {
+        document.querySelectorAll('.hero-content.fade-in').forEach(el => el.classList.add('appear'));
+    }, 100);
+  </script>
+</body>
+</html>

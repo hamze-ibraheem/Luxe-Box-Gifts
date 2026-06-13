@@ -1,0 +1,8 @@
+{
+  "name": "Luxe Box Gifts",
+  "description": "Premium custom gift box company website",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
