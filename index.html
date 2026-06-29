@@ -565,6 +565,38 @@
       .contact-wrapper { padding: 2.5rem 1.5rem; }
       .hero .btns { flex-direction: column; }
     }
+
+    .floating-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 120px;
+      height: 120px;
+      background-color: var(--gold);
+      color: var(--primary-black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      padding: 1rem;
+      line-height: 1.2;
+    }
+    
+    .floating-btn:hover {
+      transform: translateY(-5px);
+      background-color: var(--gold-hover);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+      color: var(--primary-black);
+    }
   </style>
 </head>
 <body>
@@ -786,5 +818,9 @@
         document.querySelectorAll('.hero-content.fade-in').forEach(el => el.classList.add('appear'));
     }, 100);
   </script>
+
+  <a href="https://auroraadv.co/?tab=wizard" class="floating-btn" target="_blank" rel="noopener noreferrer">
+    Get this website for only $999
+  </a>
 </body>
 </html>
