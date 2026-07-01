@@ -187,13 +187,25 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at center, rgba(20,20,20,0.5) 0%, var(--primary-black) 80%);
+      background: radial-gradient(circle at center, rgba(10,10,10,0.1) 0%, var(--primary-black) 90%), linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, var(--primary-black) 100%);
+      z-index: 1;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
       z-index: 0;
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 800px;
       padding: 0 2rem;
     }
@@ -294,22 +306,30 @@
       padding: 2.5rem;
       cursor: pointer;
       border: 1px solid var(--border-gold);
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease;
+    }
+
+    .occasion-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
     }
 
     .occasion-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to top, var(--primary-black) 0%, rgba(10,10,10,0.2) 60%, rgba(10,10,10,0.1) 100%);
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 60%, rgba(10, 10, 10, 0.2) 100%);
       z-index: 1;
       transition: background 0.4s ease;
     }
 
-    .bg-1 { background: radial-gradient(circle at top right, #2a2a2a, var(--secondary-black)); }
-    .bg-2 { background: radial-gradient(circle at bottom left, #2f2726, var(--secondary-black)); }
-    .bg-3 { background: radial-gradient(circle at top left, #231f17, var(--secondary-black)); }
-    .bg-4 { background: radial-gradient(circle at bottom right, #222, var(--secondary-black)); }
-    .bg-5 { background: radial-gradient(circle at center, #1e1d1f, var(--secondary-black)); }
+    .bg-1 { background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800&auto=format&fit=crop'); }
+    .bg-2 { background-image: url('https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop'); }
+    .bg-3 { background-image: url('https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop'); }
+    .bg-4 { background-image: url('https://images.unsplash.com/photo-1484659619207-9165d119dafe?q=80&w=800&auto=format&fit=crop'); }
+    .bg-5 { background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop'); }
 
     .occasion-card:hover::before {
         background: linear-gradient(to top, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.6) 100%);
@@ -409,7 +429,11 @@
     }
 
     .testimonials {
-      background-color: var(--secondary-black);
+      position: relative;
+      background-image: linear-gradient(to bottom, rgba(26, 26, 26, 0.92) 0%, rgba(10, 10, 10, 0.96) 100%), url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: var(--soft-white);
       border-top: 1px solid var(--border-gold);
     }
@@ -615,6 +639,12 @@
   </nav>
 
   <section class="hero">
+    <img 
+      src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=1600&auto=format&fit=crop" 
+      alt="Luxe Box Gifts Premium Presentation" 
+      class="hero-bg-img" 
+      referrerPolicy="no-referrer"
+    />
     <div class="hero-content fade-in">
       <h1>The Art of Elevating Every Occasion</h1>
       <p>Premium custom gift boxes defined by stunning presentation, high-quality products, and an absolutely stress-free gifting experience.</p>
